@@ -1,27 +1,22 @@
 <%= form_with(model: wagon, local: true) do |form| %>
-  <% if wagon.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(wagon.errors.count, "error") %> prohibited this wagon from being saved:</h2>
+    <%= render 'common/errors', resource: @wagon %>
+    <div>
+      <%= form.label :name, "Тип вагона" %>
+      <%= form.select :name, [['Плацкарт'], ['Купе']] %>
 
-      <ul>
-      <% wagon.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <%= form.label :top_place, "Кол-во верхних мест" %>
+      <%= form.number_field :top_place %>
+
+      <%= form.label :bottom_place, "Кол-во нижних мест" %>
+      <%= form.number_field :bottom_place %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :wagon_name %>
-  </div>
+    <div>
+      <%= form.label :train, "Выберите поезд к которому прицепить вагон" %>
+      <%= form.collection_select :train_id, Train.all, :id, :number %>
+    </div>
 
-  <div class="field">
-    <%= form.label :train, 'Номер поезда.' %>
-    <%= form.collection_select :train_id, Train.all, :id, :number %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions">
+      <%= form.submit "#{ @wagon.new_record? ? 'Создать' : 'Изменить'}" %>
+    </div>
 <% end %>

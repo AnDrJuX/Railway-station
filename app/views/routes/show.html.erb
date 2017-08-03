@@ -20,7 +20,7 @@
 <p>
   <strong>Поезда на маршруте:</strong>
   <% if @route.trains.present? %>
-      <%= @route.trains.number %>
+      <%= @route.trains.ids %>
   <% else %>
       На маршруте нет поездов.
   <% end %>
@@ -30,3 +30,5 @@
 
 <%= link_to 'Редактировать.', edit_route_path(@route) %> |
 <%= link_to 'Назад', routes_path %>
+
+У массива нет метода number, но он есть у каждого из элементов массива.
