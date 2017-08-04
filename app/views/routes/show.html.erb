@@ -8,27 +8,25 @@
 <p>
   <% if @route.railway_stations.empty? %>
     <p> Список маршрутов пуст: </p>
-  <% else %>
+<% else %>
     <ul>
       <% @route.railway_stations.each do |station| %>
           <li><%= station.title %></li>
       <% end %>
     </ul>
-  <% end %>
+<% end %>
 </p>
 
 <p>
   <strong>Поезда на маршруте:</strong>
   <% if @route.trains.present? %>
-      <%= @route.trains.ids %>
+      <% @route.trains.each do |train| %>
+          <%= "#{train.number}/" %>
+      <% end %>
   <% else %>
       На маршруте нет поездов.
   <% end %>
 </p>
 
-
-
 <%= link_to 'Редактировать.', edit_route_path(@route) %> |
 <%= link_to 'Назад', routes_path %>
-
-У массива нет метода number, но он есть у каждого из элементов массива.
