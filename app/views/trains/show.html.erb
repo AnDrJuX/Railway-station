@@ -4,6 +4,16 @@
   <strong>Номер поезда:</strong>
   <%= @train.number %>
 </p>
+
+<p>
+  <strong>На станции:</strong>
+  <% if @train.current_station.present? %>
+      <%= @train.current_station.title %>
+  <% else %>
+      Не указано
+  <% end %>
+</p>
+
 <p>
   <strong>На маршруте:</strong>
   <% if @train.route.present? %>
@@ -13,5 +23,27 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
+<p>
+  <strong>Вагонов у поезда:</strong>
+  <% if @train.wagons.present? %>
+      <%= @train.wagons.count %><br>
+      Плацкартных:
+      <%= @train.wagons.where(name: 'Плацкарт').count %> |
+      Нижних мест:
+      <%= @train.wagons.where(name: 'Плацкарт').sum(:bottom_place) %> |
+      Верхних мест:
+      <%= @train.wagons.where(name: 'Плацкарт').sum(:top_place) %><br>
+      Купе:
+      <%= @train.wagons.where(name: 'Купе').count %> |
+      Нижних мест:
+      <%= @train.wagons.where(name: 'Купе').sum(:bottom_place) %> |
+      Верхних мест:
+      <%= @train.wagons.where(name: 'Купе').sum(:top_place) %>
+  <% else %>
+      0
+  <% end %>
+</p>
+
+
+<%= link_to 'Редактировать', edit_train_path(@train) %> |
+<%= link_to 'Назад', trains_path %>
