@@ -28,17 +28,17 @@
   <% if @train.wagons.present? %>
       <%= @train.wagons.count %><br>
       Плацкартных:
-      <%= @train.wagons.where(name: 'Плацкарт').count %> |
+      <%= @train.wagon_type('Плацкарт') %> |
       Нижних мест:
-      <%= @train.wagons.where(name: 'Плацкарт').sum(:bottom_place) %> |
+      <%= @train.wagon_bottom_seats('Плацкарт', :bottom_place) %> |
       Верхних мест:
-      <%= @train.wagons.where(name: 'Плацкарт').sum(:top_place) %><br>
+      <%= @train.wagon_top_seats('Плацкарт', :top_place) %><br>
       Купе:
-      <%= @train.wagons.where(name: 'Купе').count %> |
+      <%= @train.wagon_type('Купе') %> |
       Нижних мест:
-      <%= @train.wagons.where(name: 'Купе').sum(:bottom_place) %> |
+      <%= @train.wagon_bottom_seats('Купе', :bottom_place) %> |
       Верхних мест:
-      <%= @train.wagons.where(name: 'Купе').sum(:top_place) %>
+      <%= @train.wagon_top_seats('Купе', :top_place) %>
   <% else %>
       0
   <% end %>
