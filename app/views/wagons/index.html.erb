@@ -4,14 +4,14 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Номер.</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
-
+   <%= render partial: "wagon", collection: @wagons, as: :wagon %>
   <tbody>
-      <%= render @wagons %>
+
   </tbody>
 </table>
 

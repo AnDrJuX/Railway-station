@@ -6,17 +6,8 @@ class Train < ApplicationRecord
 
   validates :name, presence: true
 
-  def wagon_type(type_w)
-    self.wagons.where(name: type_w)
-    self.wagons.where(name: type_w).count
-  end
-
-  def wagon_bottom_seats(type_w, bottom_place)
-    self.wagons.where(name: type_w).sum(bottom_place)
-  end
-
-  def wagon_top_seats(type_w, top_place)
-    self.wagons.where(name: type_w).sum(top_place)
+  def seats_amount(type_wagon, type_place)
+    self.wagons.where(type: type_wagon).sum(type_place)
   end
 end
 
