@@ -6,7 +6,6 @@
 <% else %>
     у вагона не назначен поезд.
 <% end %>
-</p>
 
 <p>
   <strong>Название вагона:</strong>
@@ -16,7 +15,6 @@
   <strong>Нижние места:</strong>
   <%= @wagon.bottom_place %><br>
 </p>
-<p>
 
 <%= link_to 'Редактировать', edit_wagon_path(@wagon) %> |
 <%= link_to 'Назад', wagons_path %>

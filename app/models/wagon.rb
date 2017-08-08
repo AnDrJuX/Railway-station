@@ -1,5 +1,29 @@
 class Wagon < ApplicationRecord
+
+  TYPES = {
+      SeatWagon => 'Сидячий',
+      EconomyWagon => 'Плацкарт',
+      CoupeWagon => 'Купе',
+      PremiumWagon => 'СВ'
+  }
+
   belongs_to :train
 
-  validates :name, presence: true
+  validates :number, presence: true, uniqueness: {scope: :train_id}
+  before_validation :set_number
+
+  scope :head, -> {order(:number)}
+  scope :tail, -> {order(:number).reverse_order}
+
+  def set_number
+    self.number ||= train.wagons.maximum(:number).to_i + 1
+  end
+
+  def get_types
+    TYPES.map do |k, v|
+      if self.type == k.to_s
+        v
+      end
+    end
+  end
 end
