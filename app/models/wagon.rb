@@ -20,10 +20,6 @@ class Wagon < ApplicationRecord
   end
 
   def get_types
-    TYPES.map do |k, v|
-      if self.type == k.to_s
-        v
-      end
-    end
+    TYPES[self.type]
   end
 end
