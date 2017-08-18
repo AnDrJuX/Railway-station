@@ -2,8 +2,8 @@ class Wagon < ApplicationRecord
 
   TYPES = {
       SeatWagon => 'Сидячий',
-      EconomyWagon => 'Плацкарт',
       CoupeWagon => 'Купе',
+      EconomyWagon => 'Плацкарт',
       PremiumWagon => 'СВ'
   }
 

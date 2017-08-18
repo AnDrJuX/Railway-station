@@ -8,6 +8,7 @@ class Route < ApplicationRecord
 
   before_validation :set_title
 
+
   private
 
   def set_title
