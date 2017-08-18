@@ -1,15 +1,24 @@
-<%= form_with(model: wagon, local: true) do |form| %>
+<%= form_with(model: @wagon.becomes(Wagon), local: true) do |form| %>
     <%= render 'common/errors', resource: @wagon %>
     <div>
-      <%= form.label :name, "Тип вагона" %>
-      <%= form.select :name, [['Плацкарт'], ['Купе']] %>
-
-      <%= form.label :top_place, "Кол-во верхних мест" %>
-      <%= form.number_field :top_place %>
-
-      <%= form.label :bottom_place, "Кол-во нижних мест" %>
-      <%= form.number_field :bottom_place %>
+      <%= form.label :type, "Тип вагона" %>
+      <%= form.select :type, Wagon::TYPES.invert.map {|k, v| [k.to_s, v]} %>
     </div>
+
+    <%= form.label :top_place, "Кол-во верхних мест" %>
+    <%= form.number_field :top_place, min: 0, max: 4 %>
+
+    <%= form.label :place_down, "Кол-во нижних мест" %>
+    <%= form.number_field :bottom_place, min: 0, max: 4 %>
+
+    <%= form.label :seat_place, "Кол-во сидячих мест" %>
+    <%= form.number_field :seat_place, min: 0, max: 4 %>
+
+    <%= form.label :side_bottom_place, "Кол-во нижних боковых мест" %>
+    <%= form.number_field :side_bottom_place, min: 0, max: 2 %>
+
+    <%= form.label :side_top_place, "Кол-во верхних боковых мест" %>
+    <%= form.number_field :side_top_place, min: 0, max: 2 %>
 
     <div>
       <%= form.label :train, "Выберите поезд к которому прицепить вагон" %>
@@ -17,6 +26,6 @@
     </div>
 
     <div class="actions">
-      <%= form.submit "#{ @wagon.new_record? ? 'Создать' : 'Изменить'}" %>
+      <%= form.submit "#{ @wagon.becomes(Wagon).new_record? ? 'Создать' : 'Изменить'}" %>
     </div>
 <% end %>

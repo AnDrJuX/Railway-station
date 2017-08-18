@@ -1,22 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<strong>У поезда:</strong>
-<% if @wagon.train.present? %>
-    <%= @wagon.train.number %>
-<% else %>
-    у вагона не назначен поезд.
-<% end %>
-</p>
-
 <p>
-  <strong>Название вагона:</strong>
-  <%= @wagon.name %><br>
-  <strong>Верхние места:</strong>
-  <%= @wagon.top_place %><br>
-  <strong>Нижние места:</strong>
-  <%= @wagon.bottom_place %><br>
+  <strong>Тип вагона</strong>
+   <%= @wagon.types %>
+   <%= render @wagon %>
 </p>
-<p>
 
 <%= link_to 'Редактировать', edit_wagon_path(@wagon) %> |
 <%= link_to 'Назад', wagons_path %>

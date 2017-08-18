@@ -1,6 +1,6 @@
 class RailwayStationsRoute < ApplicationRecord
-  #has_many :trains
   belongs_to :railway_station
   belongs_to :route
 
+  validates :railway_station_id, uniqueness: { scope: :route_id }
 end
