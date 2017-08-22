@@ -9,8 +9,9 @@ class RailwayStation < ApplicationRecord
 
   def update_position(route, position)
     rst = RailwayStationsRoute.find_by(route: route, railway_station: self)
-    rst.number_st = position
-    rst.update(position: position) if rst
+    #rst.number_st = position
+   # rst.save
+    rst.update!(number_st: position) if rst
   end
 end
 
