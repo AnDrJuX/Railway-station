@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823161122) do
+ActiveRecord::Schema.define(version: 20170823162541) do
 
   create_table "premium_wagons", force: :cascade do |t|
     t.integer "number"
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 20170823161122) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "train_id"
+    t.string "surname"
+    t.string "patronymic"
+    t.integer "passport_serial"
+    t.integer "passport_number"
+    t.integer "start_station_id"
+    t.integer "end_station_id"
     t.index ["train_id"], name: "index_tickets_on_train_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
