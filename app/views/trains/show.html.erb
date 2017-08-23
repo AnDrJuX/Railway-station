@@ -26,6 +26,10 @@
     </p>
 
     <p>
+      <%= link_to "Добавить вагон.", new_train_wagon_path(@train) %>
+    </p>
+
+    <p>
       <strong>Вагонов у поезда:</strong>
       <% if @train.wagons.present? %>
           <%= @train.wagons.count %>
@@ -42,8 +46,7 @@
           <% end %>
       <% end %>
     </p>
-
-
+    <%= link_to 'Добавить вагон', new_train_wagon_path(@train) %>
     <%= link_to 'Редактировать', edit_train_path(@train) %> |
     <%= link_to 'Назад', trains_path %>
 <% end %>
