@@ -1,0 +1,17 @@
+<h1> Поиск билета</h1>
+
+<%= form_tag('/search') do %>
+    <p>
+      <%= label_tag "Начальная станция" %>
+      <%= select_tag :first_station, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
+    </p>
+
+    <p>
+      <%= label_tag "Конечная станция" %>
+      <%= select_tag :last_station, options_from_collection_for_select(RailwayStation.all, :id, :title) %> </br>
+    </p>
+
+    <%= submit_tag "Поиск" %>
+    <%= link_to 'На главную', root_path %>
+
+<% end %>

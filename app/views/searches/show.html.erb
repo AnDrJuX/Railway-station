@@ -1,0 +1,34 @@
+<h1> Список поездов на маршруте: </h1>
+<table>
+  <thead>
+  <tr>
+    <th>Поезд №</th>
+    <th>Начальная станция</th>
+    <th>Время отправления</th>
+    <th>Конечная станция</th>
+    <th>Время прибытия</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% Search.find_trains(@result).each do |train| %>
+      <tr>
+        <td><%= train.name %></td>
+        <td><%= @first_station.title %></td>
+        <td><%= @first_station.time_in(train.route, :departure) %></td>
+        <td><%= @last_station.title %></td>
+        <td><%= @last_station.time_in(train.route, :arrival) %></td>
+        <td>
+          <%= form_tag new_ticket_path, method: :get do %>
+              <%= hidden_field_tag :train_title, train.name %>
+              <%= hidden_field_tag :train_id, train.id %>
+              <%= hidden_field_tag :first_station_id, @first_station.id %>
+              <%= hidden_field_tag :last_station_id, @last_station.id %>
+              <%= submit_tag "Купить билет" %>
+          <% end %>
+        </td>
+  <% end %>
+  </tr>
+  </tbody>
+</table>
+<%= link_to 'Поиск', new_search_path %>
+<%= link_to 'На главную', root_path %>
