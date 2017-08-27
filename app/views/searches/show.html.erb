@@ -12,8 +12,8 @@
   <tbody>
   <% Search.find_trains(@result).each do |train| %>
       <tr>
-        <td><%= train.name %></td>
-        <td><%= @first_station.title %></td>
+        <td><%= train.number %></td>
+        <td><%= @first_station.name %></td>
         <td><%= @first_station.time_in(train.route, :departure) %></td>
         <td><%= @last_station.title %></td>
         <td><%= @last_station.time_in(train.route, :arrival) %></td>

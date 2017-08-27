@@ -1,7 +1,5 @@
 class Search < ApplicationRecord
 
-  @stations = RailwayStation.all.map {|p| [p.title]}
-
   def self.find_station(station)
     Route.joins(:railway_stations_routes).where(["railway_stations_routes.railway_station_id = ?", station])
   end

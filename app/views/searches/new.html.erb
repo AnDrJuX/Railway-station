@@ -6,6 +6,10 @@
       <%= select_tag :first_station, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
     </p>
 
+    Лучше RailwayStation.all загрузить в переменную в контрололере
+    и использовать здесь и для списка конечных станций. Тогда не
+    будет повторного запроса всех станций
+
     <p>
       <%= label_tag "Конечная станция" %>
       <%= select_tag :last_station, options_from_collection_for_select(RailwayStation.all, :id, :title) %> </br>
