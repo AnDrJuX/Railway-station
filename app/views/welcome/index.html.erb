@@ -1,0 +1,17 @@
+<% if user_signed_in? && current_user.admin? %>
+    <h1>Добро пожаловать в админскую часть</h1>
+    <%  link_to 'Список станций', admin_railway_stations_path   %><br>
+    <%  link_to 'Список поездов', admin_trains_path   %><br>
+    <%  link_to 'Список маршрутов', admin_routes_path   %> <br>
+    <%  link_to 'Список вагонов', admin_wagons_path   %> <br>
+    <%  link_to 'Список билетов', admin_tickets_path   %> <br>
+    <%  link_to 'Создать билет', new_admin_ticket_path   %> <br>
+    <%  link_to 'Выйти', destroy_user_session_path, method: :delete %>
+<% elsif user_signed_in? %>
+    <h1>Добро пожаловать на ЖД-станцию, <%  current_user.name %></h1>
+    <%  link_to 'Поиск', new_search_path   %> <br>
+    <%  link_to 'Список билетов', tickets_path   %> <br>
+    <%  link_to 'Выйти', destroy_user_session_path, method: :delete %>
+<% else %>
+    <%  link_to "Войти", new_user_session_path %>
+<% end %>
