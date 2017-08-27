@@ -1,4 +1,4 @@
-class WagonsController < ApplicationController
+class Admin::WagonsController < Admin::BaseController
   before_action :set_wagon, only: [:show, :edit, :update, :destroy]
   before_action :set_train, only: [:new, :create]
 
@@ -19,7 +19,7 @@ class WagonsController < ApplicationController
   def create
     @wagon = @train.wagons.new(wagon_params)
     if @wagon.save
-      redirect_to @train, notice: 'Wagon was successfully created.'
+      redirect_to [:admin, @train]
     else
       render :new
     end
@@ -27,7 +27,7 @@ class WagonsController < ApplicationController
 
   def update
     if @wagon.update(wagon_params)
-      redirect_to @wagon, notice: 'Wagon was successfully updated.'
+      redirect_to admin_wagons_path(@wagon)
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class WagonsController < ApplicationController
 
   def destroy
     @wagon.destroy
-    redirect_to wagons_url, notice: 'Wagon was successfully destroyed.'
+    redirect_to admin_wagons_path(@wagon)
   end
 
   protected

@@ -1,5 +1,4 @@
-class RailwayStationsController < ApplicationController
-  before_action :authenticate_user!
+class Admin::RailwayStationsController < Admin::BaseController
   before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position, :update_arrival, :update_departure]
   before_action :set_route, only: [:update_position, :update_arrival, :update_departure]
 
@@ -25,7 +24,7 @@ class RailwayStationsController < ApplicationController
   def create
     @railway_station = RailwayStation.new(railway_station_params)
     if @railway_station.save
-      redirect_to @railway_station, notice: 'Railway station was successfully created.'
+      redirect_to [:admin, @railway_station]
     else
       render :new
     end
@@ -34,7 +33,7 @@ class RailwayStationsController < ApplicationController
   # PATCH/PUT /railway_stations/1
   def update
     if @railway_station.update(railway_station_params)
-      redirect_to @railway_station, notice: 'Railway station was successfully updated.'
+      redirect_to [:admin, @railway_station]
     else
       render :edit
     end
@@ -43,22 +42,22 @@ class RailwayStationsController < ApplicationController
   # DELETE /railway_stations/1
   def destroy
     @railway_station.destroy
-    redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.'
+    redirect_to admin_railway_stations_path
   end
 
   def update_position
     @railway_station.update_position(@route, params[:position])
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
 
   def update_arrival
     @railway_station.update_time(@route, :arrival, params[:arrival])
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
 
   def update_departure
     @railway_station.update_time(@route, :departure, params[:departure])
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
 
   private
