@@ -1,0 +1,20 @@
+<h1>БИЛЕТ №-<%= @ticket.id %></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>ФИО</th>
+    <th>Поезд №</th>
+    <th>Начальная станция</th>
+    <th>Конечная станция</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @ticket.surname %> <%= @ticket.name %> <%= @ticket.patronymic %></td>
+    <td><%= @ticket.train.name %></td>
+    <td><%= @ticket.first_station.title %></td>
+    <td><%= @ticket.last_station.title %></td>
+  </tr>
+  </tbody>
+</table>
