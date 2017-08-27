@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-
-  root to: "home#index"
+  #root 'searches#show'
+  root 'railway_stations#index'
   resources :trains do
     resources :wagons, shallow: true
   end
