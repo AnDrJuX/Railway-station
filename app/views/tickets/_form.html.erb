@@ -1,0 +1,43 @@
+<%= form_for @ticket do |form| %>
+
+    <div class="field">
+      <%= form.label :surname, "Фамилия" %>
+      <%= form.text_field :surname, id: :ticket_surname %>
+    </div>
+
+    <div class="field">
+      <%= form.label :name, "Имя" %>
+      <%= form.text_field :name, id: :ticket_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :patronymic, "Отчество" %>
+      <%= form.text_field :patronymic, id: :ticket_patronymic %>
+    </div>
+
+    <div class="field">
+      <%= form.label :passport_serial, "Серия паспорта" %>
+      <%= form.text_field :passport_serial, id: :ticket_passport_serial %>
+    </div>
+
+    <div class="field">
+      <%= form.label :passport_number, "Номер паспорта" %>
+      <%= form.text_field :passport_number, id: :ticket_passport_number %>
+    </div>
+
+    <div class="field">
+      <%= form.label :user_id, "Выбрать Пользователя" %>
+      <%= form.collection_select :user_id, User.all, :id, :id %>
+    </div>
+
+    <div class="field">
+      <%= form.hidden_field :train_id, :value => params[:train_id] %>
+      <%= form.hidden_field :first_station_id, :value => params[:first_station_id] %>
+      <%= form.hidden_field :last_station_id, :value => params[:last_station_id] %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Купить" %>
+    </div>
+
+<% end %>

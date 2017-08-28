@@ -1,0 +1,52 @@
+<%= form_for [:admin, ticket] do |form| %>
+
+    <div class="field">
+      <%= form.label :surname, "Фамилия" %>
+      <%= form.text_field :surname, id: :ticket_surname %>
+    </div>
+
+    <div class="field">
+      <%= form.label :name, "Имя" %>
+      <%= form.text_field :name, id: :ticket_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :patronymic, "Отчество" %>
+      <%= form.text_field :patronymic, id: :ticket_patronymic %>
+    </div>
+
+    <div class="field">
+      <%= form.label :passport_serial, "Серия паспорта" %>
+      <%= form.text_field :passport_serial, id: :ticket_passport_serial %>
+    </div>
+
+    <div class="field">
+      <%= form.label :passport_number, "Номер паспорта" %>
+      <%= form.text_field :passport_number, id: :ticket_passport_number %>
+    </div>
+
+     <div class="field">
+     <%= form.label :first_station_id, "Начальная станция" %>
+     <%= form.collection_select :first_station_id, RailwayStation.all, :id, :title %>
+   </div>
+     
+     <div class="field">
+     <%= form.label :last_station_id, "Конечная станция" %>
+     <%= form.collection_select :last_station_id, RailwayStation.all, :id, :title %>
+   </div>
+     
+     <div class="field">
+     <%= form.label :train_id, "Поезд" %>
+     <%= form.collection_select :train_id, Train.all, :id, :name %>
+   </div>
+     
+     <div class="field">
+     <%= form.label "Выберите пользователя" %>
+     <%= form.collection_select :user_id, User.all, :id, :name %> </br>
+   </div>
+     
+     <div class="actions">
+     <%= form.submit "#{@ticket.new_record? ? 'Купить' : 'Изменить'}" %>
+   </div>
+     
+<% end %>
