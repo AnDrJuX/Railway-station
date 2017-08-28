@@ -1,0 +1,42 @@
+ru:
+  common:
+    back: 'Назад'
+    edit: 'Изменить'
+    delete: 'Удалить'
+    show: 'Показать'
+    root: 'На главную'
+    errors: 'При заполнении формы возникли ошибки'
+    new: 'Создать'
+    add: 'Добавить'
+    search: 'Поиск'
+  admin:
+    railway_stations:
+      index:
+        title: 'Список станций'
+      new:
+        title: 'Новая станция'
+      edit:
+        title:  'Редактировать станцию'
+      form:
+        submit: '%{action} станцию'
+    trains:
+      index:
+        title: 'Список поездов'
+      new:
+        title: 'Новый поезд'
+      edit:
+        title: 'Редактировать поезд'
+      form:
+        submit: '%{action} поезд'
+    routes:
+      index:
+        title: 'Список маршрутов'
+      new:
+        title: 'Новый маршрут'
+      show:
+        form:
+          submit:
+      edit:
+        title: 'Редактировать маршрут'
+      form:
+        submit: '%{action} маршрут'
