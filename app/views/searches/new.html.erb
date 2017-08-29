@@ -3,21 +3,17 @@
 <%= form_tag('/search') do %>
     <p>
       <%= label_tag "Начальная станция" %>
-      <%= select_tag :first_station, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
+      <%= select_tag :first_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %>
     </p>
 
 
 
     <p>
       <%= label_tag "Конечная станция" %>
-      <%= select_tag :last_station, options_from_collection_for_select(RailwayStation.all, :id, :title) %> </br>
+      <%= select_tag :last_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %> </br>
     </p>
 
-    <%= submit_tag "Поиск" %>
-    <%= link_to 'На главную', root_path %>
+    <%= submit_tag "Поиск", class: 'btn btn-primary' %>
+    <%= link_to 'На главную', root_path, class: 'btn btn-primary' %>
 
 <% end %>
-
-Лучше RailwayStation.all загрузить в переменную в контрололере
-и использовать здесь и для списка конечных станций. Тогда не
-будет повторного запроса всех станций

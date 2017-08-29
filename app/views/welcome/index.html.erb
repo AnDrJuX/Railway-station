@@ -8,6 +8,4 @@
     <%= link_to 'Создать билет', new_admin_ticket_path   %> <br>
 <% elsif user_signed_in? %>
     <h1>Добро пожаловать на ЖД-станцию, <%  current_user.name %></h1>
-<% else %>
-    <%= link_to "Войти", new_user_session_path %>
 <% end %>
