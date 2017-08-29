@@ -6,12 +6,8 @@
     <%= link_to 'Список вагонов', admin_wagons_path   %> <br>
     <%= link_to 'Список билетов', admin_tickets_path   %> <br>
     <%= link_to 'Создать билет', new_admin_ticket_path   %> <br>
-    <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
 <% elsif user_signed_in? %>
     <h1>Добро пожаловать на ЖД-станцию, <%  current_user.name %></h1>
-    <%= link_to 'Поиск', new_search_path   %> <br>
-    <%= link_to 'Список билетов', tickets_path   %> <br>
-    <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
 <% else %>
     <%= link_to "Войти", new_user_session_path %>
 <% end %>

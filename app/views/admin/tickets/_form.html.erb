@@ -1,5 +1,7 @@
 <%= form_for [:admin, ticket] do |form| %>
 
+    <%= render 'common/errors', resource: @ticket %>
+
     <div class="field">
       <%= form.label :surname, "Фамилия" %>
       <%= form.text_field :surname, id: :ticket_surname %>
