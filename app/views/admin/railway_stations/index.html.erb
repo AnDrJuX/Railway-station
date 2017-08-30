@@ -1,4 +1,4 @@
-<h1>Железнодорожные станции:</h1>
+<h1><%= t('.title')%></h1>
 
 <table>
   <thead>
@@ -14,5 +14,5 @@
 
 <br>
 
-<%= link_to 'Создать новую станцию', new_admin_railway_station_path %> |
-<%= link_to 'На главную', root_path %>
+<%= link_to t('common.new'), new_admin_railway_station_path %> |
+<%= link_to t('common.root'), root_path %>

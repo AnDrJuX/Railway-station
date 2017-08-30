@@ -7,13 +7,13 @@
       <%= f.text_field :title, id: :route_title %>
     </div>
 
-    <div class="field">
-      <%= f.label :train, 'Текущий поезд.' %>
-      <%= f.collection_select :train_ids, Train.all, :id, :number %>
+    <div>
+      <%= f.label :railway_station_ids %>
+      <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, {multiple: true} %>
     </div>
 
     <div class="actions">
-      <%= f.submit "#{@route.new_record? ? 'Создать' : 'Изменить'}" %>
+      <%= form.submit t('.submit', action: @route.new_record? ? 'Создать' : 'Изменить') %>
     </div>
 <% end %>
 

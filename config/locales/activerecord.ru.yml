@@ -1,0 +1,43 @@
+ru:
+  activerecord:
+    models:
+      route: 'Маршрут'
+      railway_station: 'Станция'
+      train: 'Поезд'
+    attributes:
+      railway_station:
+        title: 'Название'
+      train:
+        number: 'Номер'
+        currentstation: 'Текущая станция'
+        route: 'Маршрут'
+      wagon:
+        seat_place: 'Сидячее место'
+        top_place: 'Верхнее место'
+        bottom_place: 'Нижнее место'
+        side_top_place: 'Нижнее боковое место'
+        side_bottom_place: 'Верхнее боковое место'
+      ticket:
+        name: 'Имя'
+        surname: 'Фамилия'
+        patronymic: 'Отчество'
+        passport_serial: 'Серия паспорта'
+        passport_number: 'Номер паспорта'
+        first_station: 'Начальная станция'
+        last_station: 'Конечная станция'
+        train: 'Поезд'
+      route:
+        railway_station_ids: 'Текущая станция'
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        required: 'не указана'
+      models:
+        railway_station:
+          attributes:
+            title:
+              blank: "должно быть указано"
+        ticket:
+          attributes:
+            train:
+              required: 'не указан'

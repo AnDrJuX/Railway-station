@@ -1,10 +1,9 @@
 <p>
   <strong>Тип вагона</strong>
   <%= @wagon.get_types.compact.join("") %> <br>
-  Поезд: <%= @wagon.train.name %>
   <%= render @wagon.type.underscore %>
 
 </p>
 
-<%= link_to 'Редактировать', edit_admin_wagon_path(@wagon) %> |
+<%= link_to 'Редактировать', edit_admin_wagon_path %> |
 <%= link_to 'Назад', admin_trains_path %>
