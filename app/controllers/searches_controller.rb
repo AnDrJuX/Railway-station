@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
     if @result_trains.present?
       render :show
     else
-      render :new
+      redirect_to new_search_path, notice: 'Билеты не найдены'
     end
   end
 
