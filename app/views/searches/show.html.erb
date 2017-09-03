@@ -23,12 +23,12 @@
               <%= hidden_field_tag :train_id, train.id %>
               <%= hidden_field_tag :first_station_id, @first_station.id %>
               <%= hidden_field_tag :last_station_id, @last_station.id %>
-              <%= submit_tag "Купить билет" %>
+              <%= submit_tag(user_signed_in? ? 'Купить' : 'Войти') %>
           <% end %>
         </td>
   <% end %>
   </tr>
   </tbody>
 </table>
-<%= link_to 'Поиск', new_search_path %>
-<%= link_to 'На главную', root_path %>
+<%= link_to 'Поиск', new_search_path, class: "btn btn-xs btn-primary" %>
+<%= link_to 'На главную', root_path, class: "btn btn-xs btn-primary" %>

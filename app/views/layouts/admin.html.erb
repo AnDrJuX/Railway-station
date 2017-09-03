@@ -1,31 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Railway</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Railway-admin" %></title>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
 </head>
-
-<body>
-
-<p id="notice" class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<% if user_signed_in? %>
-    <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
-    <p>Аккаунт: <%= current_user.email %></p>
-<% else %>
-    <%= link_to 'Войти', new_user_session_path %>
-<% end %>
-
-<%= yield %>
-</body>
-
-<footer>
-  <p>
-    (с) 2017 Andres Peterson. Учебный проект в <a href="http://thinknetica.com"> онлайн-школе Thinknetica </a>
-  </p>
-</footer>
-</html>

@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : "Railway" %></title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+</head>
+<body>
+<li> <%= link_to 'Список станций', admin_railway_stations_path %></li>
+<li> <%= link_to 'Список поездов', admin_trains_path %></li>
+<li> <%= link_to 'Список маршрутов', admin_routes_path %></li>
+<li> <%= link_to 'Список вагонов', admin_wagons_path %></li>
+<li> <%= link_to 'Список билетов', admin_tickets_path %></li>
+<li> <%= link_to 'Создать билет', new_admin_ticket_path %></li>
+</body>
+</html>
