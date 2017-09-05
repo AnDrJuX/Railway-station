@@ -7,7 +7,11 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = current_user.tickets.new
+    if user_signed_in?
+      @ticket = current_user.tickets.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
