@@ -4,7 +4,7 @@ class Train < ApplicationRecord
   has_many :tickets
   belongs_to :current_station, class_name: 'RailwayStation', optional: true
 
-  validates :name, presence: true
+  validates :number, presence: true
 
   def seats_amount(type_wagon, type_place)
     self.wagons.where(type: type_wagon).sum(type_place)
