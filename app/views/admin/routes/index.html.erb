@@ -9,7 +9,19 @@
   </thead>
 
   <tbody>
-  <%= render @routes %>
+  <% @routes.each do |route_v| %>
+      <tr>
+        <td>
+          <div id="route_title_<%= route_v.id %>">
+            <%= route_v.title %>
+          </div>
+          <%= render 'form', route: route_v, hidden: true %>
+        </td>
+        <td><%= link_to t('common.show'), [:admin, route_v] %></td>
+        <td><%= link_to t('common.edit'), '', class: 'edit_route', data: {route_id: route_v.id} %></td>
+        <td><%= link_to t('common.delete'), [:admin, route_v], method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+  <% end %>
   </tbody>
 </table>
 
