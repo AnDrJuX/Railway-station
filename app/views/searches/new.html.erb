@@ -1,7 +1,7 @@
 <h1 align="left"> Поиск билета</h1>
 
 <div class="row" align="left">
-  <%= form_tag('/search') do %>
+  <%= form_tag search_path, class: 'search_form' %>
       <div class="col-md-4">
         <%= label_tag "Начальная станция" %>
         <%= select_tag :first_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %>
@@ -13,8 +13,7 @@
         <%= select_tag :last_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %> </br>
       </div>
 
-      <%= submit_tag "Поиск", class: 'btn btn-primary' %>
-      <%= link_to 'На главную', root_path, class: 'btn btn-primary' %>
-
-  <% end %>
+      <div class="col-md-4">
+        <%= submit_tag "Поиск", class: 'btn btn-primary find' %>
+      </div>
 </div>
