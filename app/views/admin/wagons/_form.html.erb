@@ -5,29 +5,44 @@
       <%= form.select :type, Wagon::TYPES.invert.map {|k, v| [k.to_s, v]} %>
     </div>
 
-    <div id="premium_coupewagon" style="display: none;">
+    <div class="coupewagon" style="display: none;">
       <%= form.label :top_place, "Кол-во верхних мест" %>
-      <%= form.number_field :top_place, min: 0, max: 4 %>
+      <%= form.number_field :top_place, min: 0, max: 2 %>
     </div>
 
-    <div id="premium_coupewagon" style="display: none;">
+    <div class="coupewagon" style="display: none;">
       <%= form.label :bottom_place, "Кол-во нижних мест" %>
-      <%= form.number_field :bottom_place, min: 0, max: 4 %>
+      <%= form.number_field :bottom_place, min: 0, max: 2 %>
     </div>
 
-    <div id="seatwagon" style="display: none;">
+    <div class="seatwagon" style="display: none;">
       <%= form.label :seat_place, "Кол-во сидячих мест" %>
       <%= form.number_field :seat_place, min: 0, max: 4 %>
     </div>
 
-    <div id="coupewagon" style="display: none;">
+    <div class="economywagon" style="display: none;">
       <%= form.label :side_bottom_place, "Кол-во нижних боковых мест" %>
-      <%= form.number_field :side_bottom_place, min: 0, max: 2 %>
+      <%= form.number_field :side_bottom_place, min: 0, max: 1 %>
     </div>
 
-    <div id="coupewagon" style="display: none;">
+    <div class="economywagon" style="display: none;">
       <%= form.label :side_top_place, "Кол-во верхних боковых мест" %>
-      <%= form.number_field :side_top_place, min: 0, max: 2 %>
+      <%= form.number_field :side_top_place, min: 0, max: 1 %>
+    </div>
+
+    <div class="economywagon" style="display: none;">
+      <%= form.label :bottom_place, "Кол-во нижних мест" %>
+      <%= form.number_field :bottom_place, min:0, max: 2  %>
+    </div>
+
+    <div class="economywagon" style="display: none;">
+     <%= form.label :top_place, "Кол-во верхних мест" %>
+     <%= form.number_field :top_place, min:0, max: 2 %>
+    </div>
+
+    <div class="premiumwagon" style="display: none;">
+      <%= form.label :bottom_place, "Кол-во нижних мест" %>
+      <%= form.number_field :bottom_place, min:0, max: 2  %>
     </div>
 
     <div class="actions">
