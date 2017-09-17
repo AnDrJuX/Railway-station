@@ -1,4 +1,4 @@
-<h1><%= t('.title')%></h1>
+<h1><%= t('.title') %></h1>
 
 <table>
   <thead>
@@ -9,7 +9,19 @@
   </thead>
 
   <tbody>
-  <%= render @trains %>
+  <% @trains.each do |train_v| %>
+      <tr>
+        <td>
+          <div id="train_name_<%= train_v.id %>">
+            <%= train_v.name %>
+          </div>
+          <%= render 'form', train: train_v, hidden: true %>
+        </td>
+        <td><%= link_to t('common.show'), [:admin, train_v] %></td>
+        <td><%= link_to t('common.edit'), '', class: 'edit_train', data: {train_id: train_v.id} %></td>
+        <td><%= link_to t('common.delete'), [:admin, train_v], method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+  <% end %>
   </tbody>
 </table>
 
