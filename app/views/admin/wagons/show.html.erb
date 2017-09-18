@@ -1,6 +1,6 @@
 <p>
   <strong>Тип вагона</strong>
-  <%= @wagon.type %> <br>
+  @wagon.get_types.compact.join("") %> <br>
   <%= render @wagon.type.underscore %>
 
 </p>
